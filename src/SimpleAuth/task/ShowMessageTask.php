@@ -39,11 +39,13 @@ class ShowMessageTask extends PluginTask{
 	}
 
 	public function addPlayer(Player $player){
-		$this->playerList[$player->getUniqueId()] = $player;
+	    $uuid = $player->getUniqueId()->toString();
+		$this->playerList[$uuid] = $player;
 	}
 
 	public function removePlayer(Player $player){
-		unset($this->playerList[$player->getUniqueId()]);
+	    $uuid = $player->getUniqueId()->toString();
+		unset($this->playerList[$uuid]);
 	}
 
 	public function onRun($currentTick){
