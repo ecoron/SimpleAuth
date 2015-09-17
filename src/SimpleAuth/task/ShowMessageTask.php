@@ -24,8 +24,10 @@ use SimpleAuth\SimpleAuth;
 
 class ShowMessageTask extends PluginTask{
 
-	/** @var Player[] */
-	private $playerList = [];
+	/**
+	 * @var array
+	 **/
+	private $playerList = array();
 
 	public function __construct(SimpleAuth $plugin){
 		parent::__construct($plugin);
@@ -44,8 +46,11 @@ class ShowMessageTask extends PluginTask{
 	}
 
 	public function removePlayer(Player $player){
-	    $uuid = $player->getUniqueId()->toString();
-		unset($this->playerList[$uuid]);
+        //workaround to check if we get a proper object
+        if(method_exists($player, 'getUniqueId') && !empty($player->getUniqueId()->toString())) {
+            $uuid = $player->getUniqueId()->toString();
+            unset($this->playerList[$uuid]);
+	    }
 	}
 
 	public function onRun($currentTick){

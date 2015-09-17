@@ -30,6 +30,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerPreLoginEvent;
 use pocketmine\event\player\PlayerQuitEvent;
+use pocketmine\event\player\PlayerKickEvent;
 use pocketmine\event\player\PlayerRespawnEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\Player;
@@ -148,6 +149,15 @@ class EventListener implements Listener{
 		if(!$this->plugin->isPlayerAuthenticated($event->getPlayer())){
 			$event->setCancelled(true);
 		}
+	}
+
+	/**
+	 * @param PlayerKickEvent $event
+	 *
+	 * @priority MONITOR
+	 */
+	public function onPlayerKick(PlayerKickEvent $event){
+	    $this->plugin->closePlayer($event->getPlayer());
 	}
 
 	/**
