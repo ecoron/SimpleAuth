@@ -47,7 +47,7 @@ class ShowMessageTask extends PluginTask{
 
 	public function removePlayer(Player $player){
         //workaround to check if we get a proper object
-        if(method_exists($player, 'getUniqueId') && !empty($player->getUniqueId()->toString())) {
+        if(method_exists($player, 'getUniqueId') && !empty($player->getUniqueId())) {
             $uuid = $player->getUniqueId()->toString();
             unset($this->playerList[$uuid]);
 	    }
