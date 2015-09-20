@@ -1,3 +1,12 @@
+# SimpleAuth (custom for Pocketmine-MP 1.6_dev API 0.13.1)
+
+This is a custom version of SimpleAuth to make it working on Pocketmine-MP 1.6_dev API 0.13.1
+It's tested on dev builds 28 and higher.
+
+You can download the compiled phar of it from here:
+
+### [Download: SimpleAuth_v1.8.1.phar](https://s3-eu-west-1.amazonaws.com/devron/SimpleAuth_v1.8.1.phar)
+
 # SimpleAuth
 
 Plugin for PocketMine-MP that prevents people to impersonate an account, requering registration and login when connecting.
